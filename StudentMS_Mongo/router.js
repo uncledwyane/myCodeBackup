@@ -3,10 +3,10 @@ const router = express()
 const db = require('./db')
 
 router.get('/students', (req, res) => {
+    // 使用封装的db里的find方法查找数据库中所有的数据
     db.find((data) => {
-        let students = data
         res.render('index.html', {
-            students: students
+            students: data
         })
     })
 })
