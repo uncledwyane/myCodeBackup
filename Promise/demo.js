@@ -1,43 +1,25 @@
 const fs = require('fs')
 
-let p1 = new Promise((reject, resolve) => {
-    fs.readFile('./a.txt', 'utf8', (err, data) => {
-        if(err)
-            reject(err)
-        resolve(data)
+let pReadFile = (url) => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(url, 'utf8', (err, data) => {
+            if(err)
+                reject(err)
+            else
+                resolve(data)
+        })
     })
-})
-let p2 = new Promise((reject, resolve) => {
-    fs.readFile('./b.txt', 'utf8', (err, data) => {
-        if(err)
-            reject(err)
-        resolve(data)
-    })
-})
-let p3 = new Promise((reject, resolve) => {
-    fs.readFile('./c.txt', 'utf8', (err, data) => {
-        if(err)
-            reject(err)
-        resolve(data)
-    })
-})
+}
 
-
-p1
+pReadFile('./a.txt')
     .then((data) => {
-        console.log('A');
-        return p2
-    }, (err) => {
-        console.log(err);
-    })
-    .then((data) => {
-        console.log('B');
-        return p3
-    }, (err) => {
-        console.log(err);
+        console.log(data);
+        return pReadFile('./b.txt')
     })
     .then((data) => {
         console.log(data);
-    }, (err) => {
-        console.log(err);
+        return pReadFile('./c.txt')
+    })
+    .then((data) => {
+        console.log(data);
     })
