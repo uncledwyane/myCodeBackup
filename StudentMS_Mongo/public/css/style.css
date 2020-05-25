@@ -1,0 +1,16 @@
+.container{
+    width: 100%;
+    margin-top: 20px;
+}
+.header{
+    margin-bottom: 20px;
+}
+.student_list{
+    border-radius: 10px;
+    border: 5px solid rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow: 0 0 9px rgba(0,0,0,.2);
+}
+.add{
+    margin-bottom: 20px;
+}

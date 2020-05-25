@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+}
+.header{
+    margin: 20px 0;
+}
+.edit{
+    padding: 20px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 10px;
+}
